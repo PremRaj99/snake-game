@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-17T02:24:00Z",
+  "title": "Design System: Snake Game",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Muted Terracotta Rose",
+        "canonical": "oklch(0.68 0.15 345)",
+        "tonalRamp": [
+          "oklch(0.20 0.15 345)",
+          "oklch(0.32 0.15 345)",
+          "oklch(0.44 0.15 345)",
+          "oklch(0.56 0.15 345)",
+          "oklch(0.68 0.15 345)",
+          "oklch(0.78 0.12 345)",
+          "oklch(0.88 0.08 345)",
+          "oklch(0.95 0.04 345)"
+        ]
+      },
+      "accent": {
+        "role": "accent",
+        "displayName": "Sage Green",
+        "canonical": "oklch(0.72 0.08 140)",
+        "tonalRamp": [
+          "oklch(0.22 0.08 140)",
+          "oklch(0.34 0.08 140)",
+          "oklch(0.46 0.08 140)",
+          "oklch(0.58 0.08 140)",
+          "oklch(0.72 0.08 140)",
+          "oklch(0.80 0.06 140)",
+          "oklch(0.88 0.04 140)",
+          "oklch(0.95 0.02 140)"
+        ]
+      },
+      "neutral-bg": {
+        "role": "neutral",
+        "displayName": "Natural Off-White Paper",
+        "canonical": "oklch(0.99 0.00 0)",
+        "tonalRamp": [
+          "oklch(0.10 0 0)",
+          "oklch(0.25 0 0)",
+          "oklch(0.40 0 0)",
+          "oklch(0.60 0 0)",
+          "oklch(0.75 0 0)",
+          "oklch(0.90 0 0)",
+          "oklch(0.95 0 0)",
+          "oklch(0.99 0 0)"
+        ]
+      },
+      "neutral-surface": {
+        "role": "neutral",
+        "displayName": "Warm Muted Paper",
+        "canonical": "oklch(0.95 0.005 345)",
+        "tonalRamp": [
+          "oklch(0.12 0.005 345)",
+          "oklch(0.26 0.005 345)",
+          "oklch(0.42 0.005 345)",
+          "oklch(0.58 0.005 345)",
+          "oklch(0.72 0.005 345)",
+          "oklch(0.84 0.005 345)",
+          "oklch(0.92 0.005 345)",
+          "oklch(0.95 0.005 345)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Charcoal Ink",
+        "canonical": "oklch(0.25 0.01 345)",
+        "tonalRamp": [
+          "oklch(0.08 0.01 345)",
+          "oklch(0.15 0.01 345)",
+          "oklch(0.25 0.01 345)",
+          "oklch(0.38 0.01 345)",
+          "oklch(0.52 0.01 345)",
+          "oklch(0.66 0.01 345)",
+          "oklch(0.80 0.01 345)",
+          "oklch(0.92 0.01 345)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display Heading",
+        "purpose": "Main arcade titles and Game Over headlines only."
+      },
+      "body": {
+        "displayName": "Body Prose",
+        "purpose": "General instructions and standard copy."
+      },
+      "label": {
+        "displayName": "Label Monospace",
+        "purpose": "Scores, speed indicators, button text, and keyboard hints."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Immediate and snappy tactile transitions."
+      }
+    ],
+    "breakpoints": []
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Tactile play again and reset buttons.",
+      "html": "<button class=\"ds-btn-primary\">Play Again</button>",
+      "css": ".ds-btn-primary { background: #dc7f9b; color: #292728; border: 2px solid #292728; border-radius: 8px; padding: 12px 24px; font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-primary:hover { background: #292728; color: #fcfcfc; transform: translateY(-2px); }"
+    },
+    {
+      "name": "Score Card",
+      "kind": "card",
+      "refersTo": "score-card",
+      "description": "Presentational panel showing current score or speed value.",
+      "html": "<div class=\"ds-score-card\"><span class=\"ds-score-label\">Score</span><span class=\"ds-score-val\">042</span></div>",
+      "css": ".ds-score-card { background: #f2f0ee; border: 2px solid #292728; border-radius: 8px; padding: 12px 20px; display: inline-flex; flex-direction: column; align-items: center; min-width: 100px; } .ds-score-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; color: #8a8688; letter-spacing: 0.05em; font-weight: 600; margin-bottom: 2px; } .ds-score-val { font-family: 'JetBrains Mono', monospace; font-size: 24px; font-weight: 800; color: #292728; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Editorial Gallery",
+    "overview": "The Editorial Gallery translates retro-arcade energy into a sophisticated, print-like layout. Generous negative space, bold asymmetric headers, and clean structured grids form the foundation. It strips away the digital noise of glowing neon lines, heavy drop shadows, and glassmorphism. Instead, it relies on high-quality editorial typography, solid flat pastel shapes, and tactile physical borders to convey focus and hierarchy.",
+    "keyCharacteristics": [
+      "High typographic legibility with Outfit and JetBrains Mono.",
+      "Generous, clean whitespace that allows the layout to breathe.",
+      "Saturated flat color fills for game elements (rose, sage) on a warm off-white canvas.",
+      "Thick, physical-feeling borders instead of soft drop shadows."
+    ],
+    "rules": [
+      {
+        "name": "The Flat Contrast Rule",
+        "body": "Accent elements (Muted Rose and Sage Green) must be filled as solid shapes, framed by a crisp Charcoal Ink border (1px or 2px) to ensure separation against the warm off-white background. No gradients are allowed on fills.",
+        "section": "colors"
+      },
+      {
+        "name": "The Accents-Only Rule",
+        "body": "Saturated colors (Primary Rose, Accent Sage) are reserved strictly for interactive game objects (the snake, food, play button) and key indicators. Administrative containers and controls must remain neutral.",
+        "section": "colors"
+      },
+      {
+        "name": "The Flat Layering Rule",
+        "body": "Rather than lifting cards using shadows, separate layers by stacking a Warm Muted Paper surface on a Natural Off-White canvas, bordered with a solid 2px Charcoal Ink line.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use a solid 2px Charcoal border to enclose cards, score panels, and overlays.",
+      "Do display numerals (score, speed, ticks) in JetBrains Mono.",
+      "Do align the layout elements to a strict print-style grid.",
+      "Do use uppercase and wide tracking (0.05em) for small labels."
+    ],
+    "donts": [
+      "Don't use CSS box-shadows, glow filters, or neon blur animations.",
+      "Don't use gradients, metallic fills, or shiny 3D reflections on the snake or food.",
+      "Don't use sketchy, doodled SVG shapes for controls.",
+      "Don't use side-stripe border accents on indicators.",
+      "Don't use default warm-cream/biscuit backgrounds that mimic generic AI templates. Use off-white (#fcfcfc)."
+    ]
+  }
+}

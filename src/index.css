@@ -1,1 +1,133 @@
 @import 'tailwindcss';
+
+:root {
+  --color-primary: #dc7f9b; /* Muted Terracotta Rose */
+  --color-accent: #8eb48a; /* Sage Green */
+  --color-bg-deep: #fcfcfc; /* Natural Off-White Paper */
+  --color-bg-surface: #f2f0ee; /* Warm Muted Paper */
+  --color-ink: #292728; /* Charcoal Ink */
+  --color-muted: #8a8688; /* Muted Slate */
+  --font-display: 'Outfit', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --cell-size: 24px;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --cell-size: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  :root {
+    --cell-size: 18px;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-display);
+  background: var(--color-bg-deep);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Glass/Panel (Flat Editorial Panel) ─── */
+.glass-panel {
+  background: var(--color-bg-surface);
+  border: 2px solid var(--color-ink);
+  border-radius: 8px;
+}
+
+/* ─── Food pulse animation ─── */
+@keyframes food-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.food-cell {
+  animation: food-pulse 1.2s ease-in-out infinite;
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+/* ─── Game over overlay ─── */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-up {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.overlay-fade {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+.overlay-card {
+  animation: scale-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ─── Shimmer / Emphasis Text ─── */
+.text-shimmer {
+  color: var(--color-primary);
+  font-weight: 800;
+}
+
+/* ─── Buttons (Tactile & Confident) ─── */
+.btn-neon {
+  background: var(--color-primary);
+  color: var(--color-ink);
+  border: 2px solid var(--color-ink);
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition:
+    transform 0.15s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.btn-neon:hover {
+  background: var(--color-ink);
+  color: var(--color-bg-deep);
+  transform: translateY(-2px);
+}
+
+.btn-neon:active {
+  transform: translateY(0);
+}
