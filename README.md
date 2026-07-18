@@ -62,7 +62,7 @@ Ensure you have [Node.js](https://nodejs.org/) (v18 or higher) installed on your
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/PremRaj99/snake-game.git
-   cd snake-frontend-game/frontend
+   cd snake-game
    ```
 
 2. **Install dependencies**:
