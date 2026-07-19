@@ -8,15 +8,14 @@ export function GameOverOverlay({ score, onRestart }: GameOverOverlayProps) {
     <div
       className="overlay-fade absolute inset-0 z-50 flex items-center justify-center"
       style={{
-        background: 'rgba(41, 39, 40, 0.45)',
-        backdropFilter: 'blur(4px)',
+        background: 'rgba(41, 39, 40, 0.55)',
       }}
     >
       <div
         className="overlay-card flex w-full max-w-sm flex-col items-center gap-8 px-6! py-8!"
         style={{
           background: 'var(--color-bg-surface)',
-          borderRadius: 4,
+          borderRadius: 8,
           border: '3px solid var(--color-ink)',
         }}
       >

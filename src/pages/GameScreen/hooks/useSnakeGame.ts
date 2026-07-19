@@ -13,6 +13,7 @@ const initialSnake: Snake = {
 };
 
 export function useSnakeGame(boardSize: GameBoardSize) {
+  const [isStarted, setIsStarted] = useState(false);
   const [snake, setSnake] = useState<Snake>(initialSnake);
   const [food, setFood] = useState<Food>({ position: { x: 5, y: 5 } });
   const [score, setScore] = useState(0);
@@ -29,6 +30,15 @@ export function useSnakeGame(boardSize: GameBoardSize) {
       },
     });
   }, [boardSize.columns, boardSize.rows]);
+
+  const startGame = useCallback(() => {
+    setSnake(initialSnake);
+    generateFood();
+    setScore(0);
+    setGameOver(false);
+    setSpeed(INITIAL_SPEED);
+    setIsStarted(true);
+  }, [generateFood]);
 
   const tick = useCallback(() => {
     setSnake((prev) => {
@@ -75,6 +85,11 @@ export function useSnakeGame(boardSize: GameBoardSize) {
   }, [food, generateFood, boardSize.columns, boardSize.rows]);
 
   const changeDirection = useCallback((newDir: Direction) => {
+    setIsStarted((started) => {
+      if (!started) return true;
+      return started;
+    });
+
     setSnake((prev) => {
       const opposites: Record<Direction, Direction> = {
         up: 'down',
@@ -97,9 +112,11 @@ export function useSnakeGame(boardSize: GameBoardSize) {
     setScore(0);
     setGameOver(false);
     setSpeed(INITIAL_SPEED);
+    setIsStarted(false);
   }, [generateFood]);
 
   return {
+    isStarted,
     snake,
     food,
     score,
@@ -108,6 +125,7 @@ export function useSnakeGame(boardSize: GameBoardSize) {
     frameFrequency,
     tick,
     changeDirection,
+    startGame,
     resetGame,
   };
 }

@@ -1,28 +1,39 @@
 import { useEffect, useState } from 'react';
-import type { GameBoardSize } from './types';
-import { useSnakeGame } from './hooks/useSnakeGame';
-import { useKeyboard } from './hooks/useKeyboard';
-import { ScoreBar } from './components/ScoreBar';
 import { GameBoard } from './components/GameBoard';
 import { GameOverOverlay } from './components/GameOverOverlay';
+import { ScoreBar } from './components/ScoreBar';
+import { StartOverlay } from './components/StartOverlay';
+import { useKeyboard } from './hooks/useKeyboard';
+import { useSnakeGame } from './hooks/useSnakeGame';
+import type { GameBoardSize } from './types';
 
 export default function GameScreen() {
   const [boardSize] = useState<GameBoardSize>({ rows: 20, columns: 20 });
 
-  const { snake, food, score, speed, gameOver, frameFrequency, tick, changeDirection, resetGame } =
-    useSnakeGame(boardSize);
+  const {
+    isStarted,
+    snake,
+    food,
+    score,
+    speed,
+    gameOver,
+    frameFrequency,
+    tick,
+    changeDirection,
+    startGame,
+  } = useSnakeGame(boardSize);
 
-  // Game loop
+  // Game loop (only ticks when game has started and is not over)
   useEffect(() => {
     const interval = setInterval(() => {
-      if (!gameOver) tick();
+      if (isStarted && !gameOver) tick();
     }, frameFrequency);
 
     return () => clearInterval(interval);
-  }, [gameOver, frameFrequency, tick]);
+  }, [isStarted, gameOver, frameFrequency, tick]);
 
-  // Keyboard controls
-  useKeyboard(changeDirection);
+  // Keyboard controls (Space or Enter starts game; arrows/WASD direct snake and auto-start)
+  useKeyboard(changeDirection, startGame);
 
   return (
     <div
@@ -105,8 +116,11 @@ export default function GameScreen() {
         </div>
       </div>
 
+      {/* Start Game overlay */}
+      {!isStarted && !gameOver && <StartOverlay onStart={startGame} />}
+
       {/* Game Over overlay */}
-      {gameOver && <GameOverOverlay score={score} onRestart={resetGame} />}
+      {gameOver && <GameOverOverlay score={score} onRestart={startGame} />}
     </div>
   );
 }
