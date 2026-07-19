@@ -60,17 +60,20 @@ Ensure you have [Node.js](https://nodejs.org/) (v18 or higher) installed on your
 ### Installation
 
 1. **Clone the repository**:
+
    ```bash
    git clone https://github.com/PremRaj99/snake-game.git
    cd snake-game
    ```
 
 2. **Install dependencies**:
+
    ```bash
    npm install
    ```
 
 3. **Run the development server**:
+
    ```bash
    npm run dev
    ```
@@ -106,4 +109,3 @@ This project enforces **The Editorial Gallery** design rules as detailed in [`DE
 ## 📄 License
 
 This project is open-source and available under the [MIT License](LICENSE).
-
